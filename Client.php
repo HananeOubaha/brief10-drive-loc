@@ -1,4 +1,4 @@
-<?php
+<?php 
 class Client {
     private $conn; 
     public function __construct($nom, $prenom, $adresse, $numtel, $email, $mdp, $conn) {

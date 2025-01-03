@@ -111,7 +111,7 @@ $Connect->close();
 <body class="m-0 p-0 bg-gray-100 font-sans">
     <nav class="fixed top-0 left-0 w-full bg-blue-500 hover:bg-blue-600 px-5 py-3 shadow-md z-50 flex justify-between items-center transition-colors duration-300">
         <img src="v.png" alt="Logo" class="max-w-[100px] h-auto">
-        <div class="text-white text-2xl font-bold mr-auto">DRIDI CARS</div>
+        <div class="text-white text-2xl font-bold mr-auto">>Drive&Loc</div>
         <div class="space-x-2">
             <form method="post" action="" class="inline-flex gap-2">
                 <button type="submit" name="espaceAdmin" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Admin</button>

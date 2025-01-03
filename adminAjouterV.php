@@ -1,7 +1,7 @@
 <?php 
 include 'DB.php';
 include 'Vehicule.php';
-
+ 
 $db = new DB();
 $conn = $db->connect();
 

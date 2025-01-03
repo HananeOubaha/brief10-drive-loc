@@ -14,7 +14,7 @@ class LogIn {
             header("Location: espaceAdmin.php");
             exit();
         }
-
+ 
         // Regular user login
         session_start();
         

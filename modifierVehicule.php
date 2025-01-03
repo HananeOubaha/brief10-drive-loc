@@ -28,7 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $sql = "UPDATE vehicules SET marque = ?, modele = ?, annee = ?, prixparjour = ?, disponible = ?, img = ?, id_category = ? WHERE id_vehicule = ?";
     $stmt = $Connect->prepare($sql);
     $stmt->bind_param("ssidsisi", $marque, $modele, $annee, $prixparjour, $disponible, $img, $id_category, $idVehicule);
-
+ 
     if ($stmt->execute()) {
         header("Location: espaceAdmin.php");
         exit();

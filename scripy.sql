@@ -100,3 +100,12 @@ INSERT INTO Avis (id_client, id_vehicule, contenu, note, date) VALUES
 (23, 8, 'The engine noise is too loud, but overall it performs well.', 3, '2024-01-15'),
 (24, 9, 'A reliable car with great features. Highly recommend.', 4, '2024-01-17'),
 (25, 10, 'The suspension system could be better, but it handles well.', 3, '2024-01-19');
+INSERT INTO categories (id_category, category_name) VALUES
+(1, 'Sedan'),
+(2, 'SUV'),
+(3, 'Truck'),
+(4, 'vonvertible'),
+(5, 'Coupe'),
+(6, 'Hatchback'),
+(7, 'Minivan'),
+(8, 'Wagon');

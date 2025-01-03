@@ -9,7 +9,7 @@ $Connecte = $bd->connect();
 require_once 'Client.php';
 
 if(isset($_POST['submit_inscription'])) {
-    try {
+    try { 
         // Validate inputs
         if(empty($_POST["email"]) || !filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)) {
             throw new Exception("Email invalide");
@@ -17,7 +17,7 @@ if(isset($_POST['submit_inscription'])) {
         
         if(strlen($_POST["mdp"]) < 6) {
             throw new Exception("Le mot de passe doit contenir au moins 6 caractères");
-        }
+        } 
 
         $client = new Client(
             $_POST["nom"],
@@ -54,7 +54,7 @@ if(isset($_POST['submit_inscription'])) {
 </head> 
 <body class="h-screen w-screen flex items-center justify-center bg-cover bg-center animate-[changeBackground_16s_infinite]">
     <div class="absolute top-5 left-1/2 transform -translate-x-1/2 text-white text-2xl font-bold z-20">
-        <h1>Dridi Cars</h1>
+        <h1>>Drive&Loc</h1>
     </div>
 
     <div class="w-4/5 max-w-4xl mx-auto flex justify-center">

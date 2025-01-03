@@ -19,7 +19,7 @@ if (isset($_POST['supprimerReservation']) && isset($_POST['id_reservation'])) {
         exit();
     } else {
         $error_message = "Error: " . $stmt->error;
-    }
+    } 
     $stmt->close();
 }
 if (isset($_POST['avis'])) {
@@ -85,6 +85,7 @@ $Connect->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Réservations</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body class="bg-gray-100">
 
@@ -131,16 +132,22 @@ $Connect->close();
                         <form method="post" action="" class="inline-block">
                             <input type="hidden" name="id_reservation" value="<?php echo $reservation['id_reservation']; ?>">
                             <input type="hidden" name="nouveauStatut" value="Confirmee">
-                            <button type="submit" class="bg-green-500 hover:bg-green-700 text-white px-4 py-2 rounded transition-colors duration-300 mb-2" name="modifierStatut">Confirmer</button>
+                            <button type="submit" class="text-green-500 hover:text-green-700 text-xl" name="modifierStatut" title="Confirmer">
+                                <i class="fas fa-check-circle"></i>
+                            </button>
                         </form>
                         <form method="post" action="" class="inline-block">
                             <input type="hidden" name="id_reservation" value="<?php echo $reservation['id_reservation']; ?>">
                             <input type="hidden" name="nouveauStatut" value="Annulee">
-                            <button type="submit" class="bg-yellow-500 hover:bg-yellow-700 text-white px-4 py-2 rounded transition-colors duration-300 mb-2" name="modifierStatut">Annuler</button>
+                            <button type="submit" class="text-yellow-500 hover:text-yellow-700 text-xl" name="modifierStatut" title="Annuler">
+                                <i class="fas fa-times-circle"></i>
+                            </button>
                         </form>
                         <form method="post" action="" class="inline-block">
                             <input type="hidden" name="id_reservation" value="<?php echo $reservation['id_reservation']; ?>">
-                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors duration-300" name="supprimerReservation">Supprimer</button>
+                            <button type="submit" class="text-red-500 hover:text-red-700 text-xl" name="supprimerReservation" title="Supprimer">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
                         </form>
                     </td>
                 </tr>

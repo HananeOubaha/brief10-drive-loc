@@ -1,10 +1,10 @@
 <?php
-include 'DB.php';
+include 'DB.php'; 
 
 $bd = new DB();
 $connect = $bd->connect();
 
-$id_client = 2; // Remplacer par l'ID du client connecté
+$id_client = 2; 
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     if (isset($_POST['supprimerAvis'])) {

@@ -9,7 +9,7 @@ if (isset($_POST['reservations'])) {
     header("Location: reservations.php");
 }
 
-$bd = new DB();
+$bd = new DB(); 
 $Connect = $bd->connect();
 
 if ($Connect->connect_error) {

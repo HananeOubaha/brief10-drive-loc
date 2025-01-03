@@ -4,10 +4,10 @@ include 'DB.php';
 $bd = new DB();
 $Connecte = $bd->connect();
 
-if ($Connecte->connect_error) {
+if ($Connecte->connect_error) { 
     die("Connection error: " . $Connecte->connect_error);
 } 
- 
+  
 require_once 'Client.php';
 include 'LogIn.php';
 
@@ -45,7 +45,7 @@ if(isset($_POST['LogIn'])){
 </head>
 <body class="h-screen w-screen flex items-center justify-center bg-cover bg-center animate-[changeBackground_16s_infinite] font-sans m-0">
     <div class="absolute top-5 left-1/2 transform -translate-x-1/2 text-white text-2xl font-bold z-20">
-        <h1>Dridi Cars</h1>
+        <h1>>Drive&Loc</h1>
     </div>
 
     <div class="w-4/5 mx-auto flex justify-center">
