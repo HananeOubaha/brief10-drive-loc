@@ -86,22 +86,23 @@ $Connect->close();
     <title>Gestion des Réservations</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-cyan-100">
 
-<nav class="bg-blue-500 hover:bg-blue-600 fixed w-full top-0 left-0 z-50 flex justify-between items-center p-5 shadow-md transition-colors duration-300">
-    <img src="v.png" alt="Logo" class="max-w-[100px] h-auto">
-    <div class="text-2xl font-bold text-white">DRIDI CARS</div>
+<nav class="bg-cyan-900 fixed w-full top-0 left-0 z-50 flex justify-between items-center p-5 shadow-md transition-colors duration-300">
+    <!-- <img src="v.png" alt="Logo" class="max-w-[100px] h-auto"> -->
+    <div class="text-2xl font-bold text-white">DRIVE & LOC</div>
     <div class="space-x-2">
         <form method="post" action="" class="inline-flex gap-2">
-            <button type="submit" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300" name="espaceAdmin">Admin</button>
-            <button type="submit" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300" name="avis">Avis</button>
+            <button type="submit" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300" name="espaceAdmin">Admin</button>
+            <button type="submit" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300" name="avis">Avis</button>
         </form>
     </div>
 </nav>
 
 <div class="mt-32 px-4">
-    <table class="w-full bg-[#c1c4bc] border-collapse mb-8">
+    <table class="w-full bg-teal-100 border-collapse mb-8">
         <thead>
             <tr>
                 <th class="p-4 border-b">ID</th>
@@ -145,7 +146,7 @@ $Connect->close();
                         </form>
                         <form method="post" action="" class="inline-block">
                             <input type="hidden" name="id_reservation" value="<?php echo $reservation['id_reservation']; ?>">
-                            <button type="submit" class="text-red-500 hover:text-red-700 text-xl" name="supprimerReservation" title="Supprimer">
+                            <button type="submit" class="text-red-400 hover:text-red-500 text-xl" name="supprimerReservation" title="Supprimer">
                                 <i class="fas fa-trash-alt"></i>
                             </button>
                         </form>

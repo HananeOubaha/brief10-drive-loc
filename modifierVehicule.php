@@ -60,6 +60,7 @@ $Connect->close();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Modifier Véhicule</title>
     <style>
         @keyframes changeBackground {
@@ -70,8 +71,13 @@ $Connect->close();
         }
     </style>
 </head>
-<body class="h-screen w-screen flex items-center justify-center bg-cover bg-center animate-[changeBackground_16s_infinite] font-sans m-0">
-    <div class="bg-white p-8 rounded-lg shadow-lg text-center max-w-sm mx-auto">
+<body class="bg-cyan-100">
+
+<nav class="bg-cyan-900 fixed w-full top-0 left-0 z-50 flex justify-between items-center p-5 shadow-md transition-colors duration-300">
+    <!-- <img src="v.png" alt="Logo" class="max-w-[100px] h-auto"> -->
+    <div class="text-2xl font-bold text-white">DRIVE & LOC</div>
+</nav>
+    <div class="bg-white p-8 rounded-lg shadow-lg text-center mt-32 max-w-sm mx-auto">
         <h2 class="text-xl font-bold text-gray-800 mb-4">Modifier Véhicule</h2>
         <form method="POST" enctype="multipart/form-data">
             <input type="hidden" name="existing_img" value="<?php echo htmlspecialchars($img); ?>">
@@ -100,7 +106,7 @@ $Connect->close();
             <label class="block text-left mb-2">Image :</label>
             <input type="file" name="img" class="w-full p-2 mb-4 border border-gray-300 rounded">
 
-            <button type="submit" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-700">Enregistrer</button>
+            <button type="submit" class="w-full bg-cyan-900 text-white py-2 rounded hover:bg-cyan-500">Enregistrer</button>
         </form>
     </div>
 </body>

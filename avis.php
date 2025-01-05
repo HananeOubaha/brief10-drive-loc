@@ -69,22 +69,23 @@ $Connect->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gestion des Avis</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-cyan-100">
 
-<nav class="bg-blue-500 hover:bg-blue-600 fixed w-full top-0 left-0 z-50 flex justify-between items-center p-5 shadow-md transition-colors duration-300">
-    <img src="v.png" alt="Logo" class="max-w-[100px] h-auto">
-    <div class="text-2xl font-bold text-white">DRIDI CARS</div>
+<nav class="bg-cyan-900 fixed w-full top-0 left-0 z-50 flex justify-between items-center p-5 shadow-md transition-colors duration-300">
+    <!-- <img src="v.png" alt="Logo" class="max-w-[100px] h-auto"> -->
+    <div class="text-2xl font-bold text-white">DRIVE & LOC </div>
     <div class="space-x-2">
         <form method="post" action="" class="inline-flex gap-2">
-            <button type="submit" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300" name="espaceAdmin">Admin</button>
-            <button type="submit" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300" name="reservations">Réservations</button>
+            <button type="submit" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300" name="espaceAdmin">Admin</button>
+            <button type="submit" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300" name="reservations">Réservations</button>
         </form>
     </div>
 </nav>
 
 <div class="mt-32 px-4">
-    <table class="w-full bg-[#c1c4bc] border-collapse mb-8">
+    <table class="w-full bg-teal-100 border-collapse mb-8">
         <thead>
             <tr>
                 <th class="p-4 border-b">ID</th>
@@ -110,7 +111,7 @@ $Connect->close();
                     <td class="p-4 text-center border-b">
                         <form method="post" action="">
                             <input type="hidden" name="id_avis" value="<?php echo $avi['id_avis']; ?>">
-                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors duration-300" name="supprimerAvis">Supprimer</button>
+                            <button type="submit" class="bg-red-300 hover:bg-red-400 text-white px-4 py-2 rounded transition-colors duration-300" name="supprimerAvis">Supprimer</button>
                         </form>
                     </td>
                 </tr>

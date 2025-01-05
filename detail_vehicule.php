@@ -20,8 +20,9 @@ $vehicule = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drive & Loc - Détails du Véhicule</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100 ">
+<body class="bg-cyan-100 ">
     <?php include 'header.php'; ?>
     <div class="container mx-auto mt-24">
         <div class="bg-white shadow-md rounded-lg overflow-hidden px-4 mx-64">
@@ -31,8 +32,8 @@ $vehicule = $result->fetch_assoc();
                 <p class="text-gray-700">Année: <?php echo $vehicule['annee']; ?></p>
                 <p class="text-gray-700">Prix par jour: <?php echo $vehicule['prixparjour']; ?> €</p>
                 <p class="text-gray-700">Disponible: <?php echo $vehicule['disponible'] ? 'Oui' : 'Non'; ?></p>
-                <a href="reservationc.php?id=<?php echo $vehicule['id_vehicule']; ?>" class="bg-blue-500 text-white px-4 py-2 mt-4 inline-block rounded">Réserver</a>
-                <a href="ajouter_avis.php?id=<?php echo $vehicule['id_vehicule']; ?>">Donner votre avis</a>
+                <a href="reservationc.php?id=<?php echo $vehicule['id_vehicule']; ?>" class="bg-cyan-900 hover:bg-cyan-500 text-white px-4 py-2 mt-4 inline-block rounded text-white px-4 py-2 mt-4 inline-block rounded">Réserver</a>
+                <a href="ajouter_avis.php?id=<?php echo $vehicule['id_vehicule']; ?>" class ="bg-cyan-900 hover:bg-cyan-500 text-white px-4 py-2 mt-4 inline-block rounded">Donner votre avis</a>
             </div>
         </div>
     </div>

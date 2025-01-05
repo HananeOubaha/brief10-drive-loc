@@ -138,41 +138,41 @@ $Connect->close();
                 opacity: 1;
                 transform: translateY(0);
             } 
-        }
+        } 
     </style>
 </head>
-<body class="m-0 p-0 bg-gray-100 font-sans">
-    <nav class="fixed top-0 left-0 w-full bg-blue-500 hover:bg-blue-600 px-5 py-3 shadow-md z-50 flex justify-between items-center transition-colors duration-300">
-        <img src="v.png" alt="Logo" class="max-w-[100px] h-auto">
-        <div class="text-white text-2xl font-bold mr-auto">>Drive&Loc</div>
+<body class="m-0 p-0 bg-cyan-100 font-sans">
+    <nav class="fixed top-0 left-0 w-full bg-cyan-900 px-5 py-3 shadow-md z-50 flex justify-between items-center transition-colors duration-300">
+        <!-- <img src="v.png" alt="Logo" class="max-w-[100px] h-auto"> -->
+        <div class="text-white text-2xl font-bold mr-auto">Drive&Loc</div>
         <div class="space-x-2">
             <form method="post" action="" class="inline-flex gap-2">
-                <button type="submit" name="espaceAdmin" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Admin</button>
-                <button type="submit" name="Clients" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Clients</button>
-                <button type="submit" name="avis" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Avis</button>
-                <button type="submit" name="reservations" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Réservations</button>
-                <button type="submit" name="logOut" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Déconnexion</button>
+                <button type="submit" name="espaceAdmin" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">Admin</button>
+                <button type="submit" name="Clients" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">Clients</button>
+                <button type="submit" name="avis" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">Avis</button>
+                <button type="submit" name="reservations" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">Réservations</button>
+                <button type="submit" name="logOut" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">Déconnexion</button>
             </form>
         </div>
     </nav>
 
     <h2 class="text-xl font-bold mb-4 text-center mt-24">Ajouter une Catégorie</h2>
         <form action="" method="post" class="text-center mb-8">
-            <input type="text" name="category_name" placeholder="Nom de la catégorie" required>
-            <button type="submit" name="ajouterCategorie" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded transition-colors durée-300">Ajouter la catégorie</button>
+            <input type="text" name="category_name" placeholder="Nom de la catégorie"class="bg-white text-black px-6 py-2 " required>
+            <button type="submit" name="ajouterCategorie" class="bg-cyan-900 hover:bg-cyan-500 text-black px-6 py-2 rounded transition-colors durée-300">Ajouter la catégorie</button>
         </form>
 
     <div class="mt-10">
-        <div class="bg-blue-500 shadow-lg p-6 rounded-lg text-center text-white mb-8" style="animation: fadeInUp 0.5s ease-out">
+        <div class="bg-teal-200 shadow-lg p-6 rounded-lg text-center text-black mb-8" style="animation: fadeInUp 0.5s ease-out">
             <h2 class="text-xl font-bold mb-4">Ajouter une nouvelle véhicule...</h2>
             <form method="post" action="">
-                <button type="submit" name="ajouter" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded transition-colors durée-300">Ajouter</button>
+                <button type="submit" name="ajouter" class="bg-cyan-900 hover:bg-cyan-500 text-white px-6 py-2 rounded transition-colors durée-300">Ajouter</button>
             </form>
         </div>
         <div class="overflow-x-auto">
-            <table class="w-full bg-[#c1c4bc] mb-8">
+            <table class="w-full bg-teal-100 mb-8">
                 <thead>
-                    <tr>
+                    <tr class="text-black">
                         <th class="p-4 text-left border-b">Image</th>
                         <th class="p-4 text-left border-b">Marque</th>
                         <th class="p-4 text-left border-b">Modèle</th>
@@ -183,7 +183,7 @@ $Connect->close();
                         <th class="p-4 text-center border-b">Supprimer</th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody class="text-cyan-900 font-semibold">
                     <?php
                     foreach ($rows as $row) {
                         $idVehicule = $row['id_vehicule'];
@@ -202,12 +202,12 @@ $Connect->close();
                         <td class="p-4 border-b"><?php echo $prixparjour; ?></td>
                         <td class="p-4 border-b"><?php echo ($disponible == 1 ? 'disponible' : 'non disponible'); ?></td>
                         <td class="p-4 text-center border-b">
-                            <a href="modifierVehicule.php?idV=<?php echo $idVehicule; ?>" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors durée-300">Modifier</a>
+                            <a href="modifierVehicule.php?idV=<?php echo $idVehicule; ?>" class="bg-cyan-900 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors durée-300">Modifier</a>
                         </td>
                         <td class="p-4 text-center border-b">
                             <form method="post" action="">
                                 <input type="hidden" name="idV" value="<?php echo $idVehicule; ?>">
-                                <button type="submit" name="Supprimer" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors durée-300">Supprimer</button>
+                                <button type="submit" name="Supprimer" class="bg-red-400 hover:bg-red-600 text-white px-4 py-2 rounded transition-colors durée-300">Supprimer</button>
                             </form>
                         </td>
                     </tr>

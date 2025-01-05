@@ -43,6 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submitAjouterVehicule'
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
     <title>Formulaire de Véhicule</title>
     <style>
         body {
@@ -54,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submitAjouterVehicule'
             0% { background-image: url('1.png'); }
             25% { background-image: url('2.png'); }
             50% { background-image: url('3.png'); }
-            75% { background-image: url('4.png'); }
+            75% { background-image: url('2.png'); }
             100% { background-image: url('1.png'); }
         }
     </style>
@@ -108,7 +109,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submitAjouterVehicule'
             <label for="image" class="block text-left mb-1">Saisir une image :</label>
             <input type="file" id="image" name="image" accept="image/*" required class="w-full p-1 mb-2 border border-gray-300 rounded">
 
-            <button type="submit" name="submitAjouterVehicule" class="w-full bg-blue-500 text-white py-1 rounded hover:bg-blue-700">Soumettre</button>
+            <button type="submit" name="submitAjouterVehicule" class="w-full bg-cyan-900 text-white py-1 rounded hover:bg-cyan-500">Soumettre</button>
         </form>
     </div>
 </body>

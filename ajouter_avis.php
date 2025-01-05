@@ -68,17 +68,18 @@ $vehicule = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ajouter un avis - <?php echo htmlspecialchars($vehicule['marque'] . ' ' . $vehicule['modele']); ?></title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-cyan-100">
     <?php include 'header.php'; ?>
-    <div class="container mx-auto mt-10">
+    <div class="container mx-auto mt-32">
         <div class="max-w-2xl mx-auto bg-white p-8 rounded-lg shadow-md">
             <h2 class="text-2xl font-bold mb-6">Donner votre avis sur <?php echo htmlspecialchars($vehicule['marque'] . ' ' . $vehicule['modele']); ?></h2>
             
             <form method="POST" action="" class="space-y-6">
                 <div>
-                    <label for="note" class="block text-gray-700 font-medium mb-2">Note (/5)</label>
-                    <select name="note" id="note" class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500" required>
+                    <label for="note" class="block text-gray font-medium mb-2">Note (/5)</label>
+                    <select name="note" id="note" class="w-full p-2 border border-cyan-500 rounded-md" required>
                         <option value="">Sélectionnez une note</option>
                         <option value="1">1 - Très insatisfait</option>
                         <option value="2">2 - Insatisfait</option>
@@ -89,12 +90,12 @@ $vehicule = $result->fetch_assoc();
                 </div>
 
                 <div>
-                    <label for="contenu" class="block text-gray-700 font-medium mb-2">Votre avis</label>
+                    <label for="contenu" class="block text-gray font-medium mb-2">Votre avis</label>
                     <textarea 
                         name="contenu" 
                         id="contenu" 
                         rows="5" 
-                        class="w-full p-2 border border-gray-300 rounded-md focus:ring-blue-500 focus:border-blue-500"
+                        class="w-full p-2 border border-cyan-500 rounded-md "
                         placeholder="Partagez votre expérience avec ce véhicule..."
                         required
                     ></textarea>
@@ -102,7 +103,7 @@ $vehicule = $result->fetch_assoc();
 
                 <button 
                     type="submit" 
-                    class="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600 transition duration-200"
+                    class="w-full bg-cyan-900 text-white py-2 px-4 rounded-md hover:bg-cyan-500 transition duration-200"
                 >
                     Publier votre avis
                 </button>

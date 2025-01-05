@@ -103,10 +103,11 @@ $vehicule = $result->fetch_assoc();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Drive & Loc - Réservation</title>
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-gray-100">
+<body class="bg-cyan-100">
     <?php include 'header.php'; ?>
-    <div class="container mx-auto mt-10">
+    <div class="container mx-auto mt-32">
         <div class="bg-white shadow-md rounded-lg overflow-hidden p-6">
             <h2 class="text-2xl font-bold mb-4">Réserver <?php echo htmlspecialchars($vehicule['marque'] . ' ' . $vehicule['modele']); ?></h2>
             
@@ -139,7 +140,7 @@ $vehicule = $result->fetch_assoc();
                 </div>
                 
                 <button type="submit" 
-                        class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded">
+                        class="w-full bg-cyan-900 hover:bg-cyan-500 text-white font-bold py-2 px-4 rounded">
                     Confirmer la Réservation
                 </button>
             </form>
