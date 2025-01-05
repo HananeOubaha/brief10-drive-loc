@@ -5,7 +5,7 @@ $bd = new DB();
 $Connect = $bd->connect();
 
 if ($Connect->connect_error) {
-    die("Connection error: " . $Connect->connect_error);
+    die("Erreur de connexion : " . $Connect->connect_error);
 }
 
 $idVehicule = 0;
@@ -53,11 +53,44 @@ if (isset($_POST['Supprimer'])) {
     header("Location: espaceAdmin.php");
 }
 
+// Insertion de catégories et de véhicules
+if (isset($_POST['ajouterCategorie'])) {
+    $category_name = $_POST['category_name'];
+    $sql = "INSERT INTO categories (category_name) VALUES (?)";
+    $stmt = $Connect->prepare($sql);
+    $stmt->bind_param("s", $category_name);
+    $stmt->execute();
+    $stmt->close();
+}
+
+if (isset($_POST['ajouterVehicule'])) {
+    $marque = $_POST['marque'];
+    $modele = $_POST['modele'];
+    $annee = $_POST['annee'];
+    $prixparjour = $_POST['prixparjour'];
+    $disponible = $_POST['disponible'];
+    $img = $_POST['img'];
+    $id_category = $_POST['id_category'];
+    $sql = "INSERT INTO vehicules (marque, modele, annee, prixparjour, disponible, img, id_category) VALUES (?, ?, ?, ?, ?, ?, ?)";
+    $stmt = $Connect->prepare($sql);
+    $stmt->bind_param("ssidsii", $marque, $modele, $annee, $prixparjour, $disponible, $img, $id_category);
+    $stmt->execute();
+    $stmt->close();
+}
+
+// Récupération des catégories et des véhicules
+$categories = [];
+$sql = "SELECT id_category, category_name FROM categories";
+$result = $Connect->query($sql);
+while ($row = $result->fetch_assoc()) {
+    $categories[] = $row;
+}
+
 $rows = [];
 $sql = "SELECT id_vehicule, marque, modele, annee, prixparjour, disponible, img FROM vehicules";
 $stmt = $Connect->prepare($sql);
 if (!$stmt) {
-    $ch = "Error in prepare statement: " . $Connect->error;
+    $ch = "Erreur dans la déclaration préparée : " . $Connect->error;
     echo "<script>alert('$ch')</script>";
 } else {
     if ($stmt->execute()) {
@@ -79,7 +112,7 @@ if (!$stmt) {
             echo "<script>alert('Aucun véhicule trouvé.')</script>";
         }
     } else {
-        $ch = "Error: " . $stmt->error;
+        $ch = "Erreur : " . $stmt->error;
         echo "<script>alert('$ch')</script>";
     }
     $stmt->close();
@@ -89,7 +122,7 @@ $Connect->close();
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,14 +156,19 @@ $Connect->close();
         </div>
     </nav>
 
-    <div class="mt-32">
+    <h2 class="text-xl font-bold mb-4 text-center mt-24">Ajouter une Catégorie</h2>
+        <form action="" method="post" class="text-center mb-8">
+            <input type="text" name="category_name" placeholder="Nom de la catégorie" required>
+            <button type="submit" name="ajouterCategorie" class="bg-green-500 hover:bg-green-600 text-white px-6 py-2 rounded transition-colors durée-300">Ajouter la catégorie</button>
+        </form>
+
+    <div class="mt-10">
         <div class="bg-blue-500 shadow-lg p-6 rounded-lg text-center text-white mb-8" style="animation: fadeInUp 0.5s ease-out">
             <h2 class="text-xl font-bold mb-4">Ajouter une nouvelle véhicule...</h2>
             <form method="post" action="">
-                <button type="submit" name="ajouter" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded transition-colors duration-300">Ajouter</button>
+                <button type="submit" name="ajouter" class="bg-red-500 hover:bg-red-600 text-white px-6 py-2 rounded transition-colors durée-300">Ajouter</button>
             </form>
         </div>
-
         <div class="overflow-x-auto">
             <table class="w-full bg-[#c1c4bc] mb-8">
                 <thead>
@@ -164,12 +202,12 @@ $Connect->close();
                         <td class="p-4 border-b"><?php echo $prixparjour; ?></td>
                         <td class="p-4 border-b"><?php echo ($disponible == 1 ? 'disponible' : 'non disponible'); ?></td>
                         <td class="p-4 text-center border-b">
-                            <a href="modifierVehicule.php?idV=<?php echo $idVehicule; ?>" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors duration-300">Modifier</a>
+                            <a href="modifierVehicule.php?idV=<?php echo $idVehicule; ?>" class="bg-blue-500 hover:bg-blue-700 text-white px-4 py-2 rounded transition-colors durée-300">Modifier</a>
                         </td>
                         <td class="p-4 text-center border-b">
                             <form method="post" action="">
                                 <input type="hidden" name="idV" value="<?php echo $idVehicule; ?>">
-                                <button type="submit" name="Supprimer" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors duration-300">Supprimer</button>
+                                <button type="submit" name="Supprimer" class="bg-red-500 hover:bg-red-700 text-white px-4 py-2 rounded transition-colors durée-300">Supprimer</button>
                             </form>
                         </td>
                     </tr>

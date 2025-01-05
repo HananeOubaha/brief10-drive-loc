@@ -10,7 +10,7 @@ CREATE TABLE clients (
     nom VARCHAR(100) NOT NULL,          
     prenom VARCHAR(100) NOT NULL,      
     adresse TEXT,                      
-    numtel VARCHAR(15) NOT NULL,        
+    numtel VARCHAR(15) NOT NULL,         
     email VARCHAR(255) NOT NULL UNIQUE, 
     mdp VARCHAR(255) NOT NULL,
     id_role INT NOT NULL,
@@ -109,3 +109,4 @@ INSERT INTO categories (id_category, category_name) VALUES
 (6, 'Hatchback'),
 (7, 'Minivan'),
 (8, 'Wagon');
+ALTER TABLE Avis ADD COLUMN is_deleted TINYINT(1) DEFAULT 0;

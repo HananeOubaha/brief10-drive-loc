@@ -31,7 +31,8 @@ $vehicule = $result->fetch_assoc();
                 <p class="text-gray-700">Année: <?php echo $vehicule['annee']; ?></p>
                 <p class="text-gray-700">Prix par jour: <?php echo $vehicule['prixparjour']; ?> €</p>
                 <p class="text-gray-700">Disponible: <?php echo $vehicule['disponible'] ? 'Oui' : 'Non'; ?></p>
-                <a href="reservation.php?id=<?php echo $vehicule['id_vehicule']; ?>" class="bg-blue-500 text-white px-4 py-2 mt-4 inline-block rounded">Réserver</a>
+                <a href="reservationc.php?id=<?php echo $vehicule['id_vehicule']; ?>" class="bg-blue-500 text-white px-4 py-2 mt-4 inline-block rounded">Réserver</a>
+                <a href="ajouter_avis.php?id=<?php echo $vehicule['id_vehicule']; ?>">Donner votre avis</a>
             </div>
         </div>
     </div>

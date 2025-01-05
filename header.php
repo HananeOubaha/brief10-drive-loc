@@ -8,14 +8,13 @@
 </head>
 <body>
 <nav class="bg-blue-500 hover:bg-blue-600 fixed w-full top-0 left-0 z-50 flex justify-between items-center p-5 shadow-md transition-colors duration-300">
-    <img src="v.png" alt="Logo" class="max-w-[100px] h-auto">
-    <div class="text-2xl font-bold text-white">DRIDI CARS</div>
+    <!-- <img src="logocar.jpeg" alt="Logo" class="max-w-[9px] h-auto"> -->
+    <div class="text-2xl font-bold text-white">Drive & Loc </div>
     <div class="space-x-2">
-        <a href="index.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Accueil</a>
-        <a href="avisC.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Avis</a>
+        <a href="indexi.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Accueil</a>
+        <!-- <a href="ajouter_avis.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Avis</a> -->
         <a href="reservationc.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Réservations</a>
-        <a href="categories.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Catégories</a>
-        <a href="login.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Deconnexion</a>
+        <a href="index.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Deconnexion</a>
     </div>
 </nav>
 </body>

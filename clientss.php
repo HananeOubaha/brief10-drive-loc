@@ -86,10 +86,6 @@ if (isset($_POST['modifier'])) {
         
                 <label for="email" class="block text-left mb-2">Email:</label>
                 <input type="email" id="email" name="email" class="w-full p-2 mb-4 border border-gray-300 rounded" value="' . $email . '" required>
-        
-                <label for="mdp" class="block text-left mb-2">Mot de passe:</label>
-                <input type="text" id="mdp" name="mdp" class="w-full p-2 mb-4 border border-gray-300 rounded" value="' . $mdp . '" required>
-        
                 <button type="submit" name="submitModification" class="w-full bg-blue-500 text-white py-2 rounded hover:bg-blue-700">Modifier</button>
             </form>
         </div>';
