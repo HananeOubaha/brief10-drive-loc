@@ -110,3 +110,47 @@ INSERT INTO categories (id_category, category_name) VALUES
 (7, 'Minivan'),
 (8, 'Wagon');
 ALTER TABLE Avis ADD COLUMN is_deleted TINYINT(1) DEFAULT 0;
+
+-- Table des articles
+CREATE TABLE articles (
+    id_article INT AUTO_INCREMENT PRIMARY KEY,
+    titre VARCHAR(255) NOT NULL,
+    contenu TEXT NOT NULL,
+    date_publication DATETIME DEFAULT CURRENT_TIMESTAMP,
+    etat ENUM('En attente', 'Approuvé', 'Rejeté') NOT NULL DEFAULT 'En attente',
+    id_client INT NOT NULL,
+    FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE
+);
+-- Table des tags
+CREATE TABLE tags (
+    id_tag INT AUTO_INCREMENT PRIMARY KEY,
+    nom_tag VARCHAR(100) NOT NULL UNIQUE
+);
+
+CREATE TABLE article_tags (
+    id_article INT NOT NULL,
+    id_tag INT NOT NULL,
+    PRIMARY KEY (id_article, id_tag),
+    FOREIGN KEY (id_article) REFERENCES articles (id_article) ON DELETE CASCADE,
+    FOREIGN KEY (id_tag) REFERENCES tags (id_tag) ON DELETE CASCADE
+);
+-- Table des commentaires
+CREATE TABLE commentaires (
+    id_commentaire INT AUTO_INCREMENT PRIMARY KEY,
+    contenu TEXT NOT NULL,
+    date_commentaire DATETIME DEFAULT CURRENT_TIMESTAMP,
+    id_article INT NOT NULL,
+    id_client INT NOT NULL,
+    FOREIGN KEY (id_article) REFERENCES articles (id_article) ON DELETE CASCADE,
+    FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE
+);
+
+-- Table des favoris
+CREATE TABLE favoris (
+    id_client INT NOT NULL,
+    id_article INT NOT NULL,
+    PRIMARY KEY (id_client, id_article),
+    FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE,
+    FOREIGN KEY (id_article) REFERENCES articles (id_article) ON DELETE CASCADE
+);
+
