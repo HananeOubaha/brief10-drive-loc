@@ -8,19 +8,19 @@ class LogIn {
         $this->motDePasse = $motDePasse;
 
         // Admin check
-        if($email === "hanane@gmail.com" && $motDePasse === "hanane123456") {
+        if ($email === "hanane@gmail.com" && $motDePasse === "hanane123456") {
             session_start();
             $_SESSION["admin"] = true;
             header("Location: espaceAdmin.php");
             exit();
         }
- 
+
         // Regular user login
         session_start();
-        
+
         $sql = "SELECT id_client, email, mdp, id_role FROM clients WHERE email = ?";
         $stmt = $Connecte->prepare($sql);
-        
+
         if (!$stmt) {
             die("Erreur de préparation : " . $Connecte->error);
         }
@@ -31,7 +31,7 @@ class LogIn {
         $user = $result->fetch_assoc();
 
         if ($user && password_verify($motDePasse, $user["mdp"])) {
-            $_SESSION["idclient"] = $user["id_client"];
+            $_SESSION["id_client"] = $user["id_client"]; // Correction ici
             $_SESSION["role"] = $user["id_role"];
             $_SESSION["rowsF"] = [];
             header("Location: indexi.php");
@@ -59,4 +59,4 @@ class LogIn {
         $this->motDePasse = $motDePasse;
     }
 }
-?> 
+?>

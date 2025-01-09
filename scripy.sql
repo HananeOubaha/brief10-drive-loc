@@ -116,9 +116,11 @@ CREATE TABLE articles (
     id_article INT AUTO_INCREMENT PRIMARY KEY,
     titre VARCHAR(255) NOT NULL,
     contenu TEXT NOT NULL,
-    date_publication DATETIME DEFAULT CURRENT_TIMESTAMP,
-    etat ENUM('En attente', 'Approuvé', 'Rejeté') NOT NULL DEFAULT 'En attente',
+    -- date_publication DATETIME DEFAULT CURRENT_TIMESTAMP,
+    statut ENUM('En attente', 'Approuvé', 'Rejeté') NOT NULL DEFAULT 'En attente',
     id_client INT NOT NULL,
+    id_theme INT,
+    FOREIGN KEY (id_theme) REFERENCES themes (id_theme) ON DELETE SET NULL,
     FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE
 );
 -- Table des tags
@@ -138,19 +140,155 @@ CREATE TABLE article_tags (
 CREATE TABLE commentaires (
     id_commentaire INT AUTO_INCREMENT PRIMARY KEY,
     contenu TEXT NOT NULL,
-    date_commentaire DATETIME DEFAULT CURRENT_TIMESTAMP,
     id_article INT NOT NULL,
     id_client INT NOT NULL,
     FOREIGN KEY (id_article) REFERENCES articles (id_article) ON DELETE CASCADE,
     FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE
-);
+); 
 
--- Table des favoris
 CREATE TABLE favoris (
+    id_favori INT PRIMARY KEY AUTO_INCREMENT,
     id_client INT NOT NULL,
     id_article INT NOT NULL,
-    PRIMARY KEY (id_client, id_article),
     FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE,
     FOREIGN KEY (id_article) REFERENCES articles (id_article) ON DELETE CASCADE
 );
+CREATE TABLE themes (
+    id_theme INT PRIMARY KEY AUTO_INCREMENT,
+    nom VARCHAR(255) NOT NULL
+);
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Amélioration du site web de Drive & Loc', 
+'Nous sommes ravis d\'annoncer que Drive & Loc travaille actuellement sur une refonte de son site web pour offrir une expérience utilisateur améliorée. 
+Nous avons pris en compte les commentaires de nos utilisateurs et nous nous efforçons de rendre la navigation plus intuitive. 
+Attendez-vous à une interface plus moderne, des temps de chargement plus rapides, et de nouvelles fonctionnalités excitantes comme la comparaison de véhicules et des recommandations personnalisées. 
+Restez à l\'écoute pour plus de mises à jour!', 
+'Approuvé', 
+23, 
+1);
 
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Lancement du blog interactif Drive & Loc', 
+'Drive & Loc est fier de présenter son nouveau blog interactif! Cet espace dédié permettra à nos clients et passionnés d\'automobiles de partager leurs expériences, poser des questions et discuter des dernières tendances. 
+Nous publierons régulièrement des articles sur les nouveautés du secteur automobile, des conseils pour la location de véhicules, et des témoignages de nos clients. 
+Participez aux discussions et partagez vos histoires avec notre communauté!', 
+'Approuvé', 
+24, 
+1);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Partagez vos expériences de location de véhicules', 
+'Nous invitons tous nos clients à partager leurs expériences de location de véhicules sur notre nouveau blog. 
+Que vous ayez loué une voiture pour un voyage d\'affaires, des vacances en famille, ou un événement spécial, vos avis sont précieux et aideront d\'autres clients à faire le bon choix. 
+N\'hésitez pas à parler de la qualité du service, de l\'état du véhicule, et de tout autre aspect de votre expérience avec Drive & Loc. 
+Votre feedback est essentiel pour nous permettre d\'améliorer nos services!', 
+'Approuvé', 
+25, 
+2);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Les dernières tendances automobiles', 
+'Découvrez les dernières tendances et innovations dans le monde de l\'automobile sur notre blog. 
+Nous couvrons tout, des nouveaux modèles de véhicules aux technologies émergentes comme les voitures électriques et autonomes. 
+Apprenez-en plus sur les avancées en matière de sécurité, d\'efficacité énergétique, et de confort. 
+Nous vous tiendrons informés des salons de l\'automobile, des lancements de nouveaux modèles, et des développements les plus passionnants du secteur.', 
+'Approuvé', 
+26, 
+3);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Conseils pour une location de véhicule réussie', 
+'Sur notre blog, nous partageons des conseils et astuces pour vous aider à tirer le meilleur parti de votre expérience de location de véhicule. 
+Découvrez comment choisir le bon véhicule en fonction de vos besoins, comment économiser de l\'argent sur la location, et quelles sont les meilleures pratiques pour une conduite en toute sécurité. 
+Nous vous donnons également des conseils sur l\'entretien du véhicule pendant la période de location et comment gérer les situations d\'urgence.', 
+'Approuvé', 
+27, 
+4);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Événements et rencontres passionnés d\'automobiles', 
+'Rejoignez notre communauté de passionnés d\'automobiles et participez à nos événements et rencontres. 
+Nous organisons régulièrement des rencontres pour discuter des dernières nouveautés, échanger des conseils, et partager notre passion commune pour les voitures. 
+Participez à nos rallyes, concours de photos, et autres événements spéciaux. 
+Restez connecté avec d\'autres amateurs et partagez votre passion sur notre blog!', 
+'Approuvé', 
+28, 
+5);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Les avantages de la location de véhicules électriques', 
+'La location de véhicules électriques devient de plus en plus populaire. 
+Découvrez les avantages écologiques et économiques de conduire un véhicule électrique avec Drive & Loc. 
+Les véhicules électriques offrent une conduite silencieuse, des coûts de carburant réduits, et une empreinte carbone plus faible. 
+Nous vous expliquons tout ce que vous devez savoir sur la recharge, l\'autonomie, et les incitations gouvernementales pour les véhicules électriques.', 
+'Approuvé', 
+29, 
+6);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Comment choisir le bon véhicule pour vos besoins', 
+'Choisir le bon véhicule de location peut être difficile. 
+Lisez nos conseils pour sélectionner le véhicule qui répondra le mieux à vos besoins et à votre budget. 
+Que vous ayez besoin d\'une petite voiture pour un déplacement urbain, d\'un SUV pour une sortie en famille, ou d\'une voiture de luxe pour une occasion spéciale, nous vous aidons à faire le bon choix. 
+Nous vous donnons également des conseils sur les options supplémentaires comme les sièges enfants, le GPS, et les assurances.', 
+'Approuvé', 
+30, 
+4);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Nos services de location à long terme', 
+'Savez-vous que Drive & Loc propose des services de location à long terme? 
+Découvrez les avantages et les conditions de nos offres de location à long terme. 
+La location à long terme peut être une solution flexible et économique pour les entreprises, les expatriés, et les particuliers ayant des besoins de mobilité prolongés. 
+Nous vous expliquons les modalités, les tarifs, et les services inclus dans nos offres de location à long terme.', 
+'Approuvé', 
+31, 
+3);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Témoignages de nos clients satisfaits', 
+'Lisez les témoignages de nos clients satisfaits qui ont utilisé les services de Drive & Loc. 
+Découvrez leurs expériences, les véhicules qu\'ils ont loués, et leurs avis sur la qualité du service. 
+Partagez également votre propre expérience sur notre blog et aidez d\'autres clients à faire le bon choix. 
+Nous sommes fiers de la satisfaction de nos clients et nous nous efforçons de maintenir un service de haute qualité.', 
+'Approuvé', 
+32, 
+2);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Les meilleurs itinéraires pour un road trip', 
+'Planifiez votre prochain road trip avec Drive & Loc. 
+Découvrez les meilleurs itinéraires, attractions et conseils pour une aventure inoubliable. 
+Que vous soyez à la recherche de paysages pittoresques, de monuments historiques, ou de plages ensoleillées, nous vous proposons des itinéraires adaptés à tous les goûts. 
+Nous vous donnons également des conseils pratiques pour préparer votre voyage et profiter pleinement de votre road trip.', 
+'Approuvé', 
+33, 
+1);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('L\'importance de l\'entretien régulier des véhicules', 
+'Un entretien régulier est essentiel pour garantir la sécurité et la performance des véhicules. 
+Apprenez-en davantage sur les pratiques d\'entretien recommandées pour nos véhicules de location. 
+Nous vous expliquons les vérifications à effectuer avant de prendre la route, les signes d\'alerte à surveiller, et comment prolonger la durée de vie du véhicule. 
+Un bon entretien permet également de réduire les risques de panne et d\'accidents, assurant ainsi une conduite en toute tranquillité.', 
+'Approuvé', 
+34, 
+5);
+
+INSERT INTO articles (titre, contenu, statut, id_client, id_theme) VALUES
+('Les meilleures applications pour les conducteurs', 
+'Découvrez les meilleures applications mobiles pour les conducteurs, y compris les applications de navigation, de musique, et de gestion des dépenses de carburant. 
+Nous vous présentons des applications pratiques pour planifier vos trajets, trouver les stations-service les plus proches, et éviter les embouteillages. 
+Que vous soyez un conducteur occasionnel ou un voyageur fréquent, ces applications vous aideront à rendre vos trajets plus agréables et efficaces.', 
+'Approuvé', 
+35, 
+6);
+
+-- Table des favoris
+-- CREATE TABLE favoris (
+--     id_client INT NOT NULL,
+--     id_article INT NOT NULL,
+--     PRIMARY KEY (id_client, id_article),
+--     FOREIGN KEY (id_client) REFERENCES clients (id_client) ON DELETE CASCADE,
+--     FOREIGN KEY (id_article) REFERENCES articles (id_article) ON DELETE CASCADE
+-- );

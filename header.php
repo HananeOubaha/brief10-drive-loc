@@ -12,7 +12,7 @@
     <div class="text-2xl font-bold text-white">Drive & Loc </div>
     <div class="space-x-2">
         <a href="indexi.php" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">Accueil</a>
-        <!-- <a href="ajouter_avis.php" class="bg-red-500 hover:bg-green-600 text-white px-4 py-2 rounded transition-colors duration-300">Avis</a> -->
+        <a href="themes.php" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">blog</a>
         <!-- <a href="reservationc.php" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">Réservations</a> -->
         <a href="index.php" class="bg-cyan-500 hover:bg-cyan-950 text-white px-4 py-2 rounded transition-colors duration-300">Deconnexion</a>
     </div>
