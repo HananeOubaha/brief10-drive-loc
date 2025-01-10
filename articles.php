@@ -38,6 +38,8 @@ echo "Nombre d'articles trouvés: " . count($articles) . "<br>";
                             <h2 class="text-xl font-semibold"><?php echo htmlspecialchars($article['titre']); ?></h2>
                             <p><?php echo nl2br(htmlspecialchars($article['contenu'])); ?></p>
                             <p class="text-sm text-gray-500">Statut: <?php echo htmlspecialchars($article['statut']); ?></p>
+                            <!-- Lien vers la page commentaires.php avec id_article -->
+                            <a href="commentaires.php?id_article=<?php echo $article['id_article']; ?>" class="text-blue-500 hover:underline">Voir les commentaires</a>
                         </li>
                     <?php endforeach; ?>
                 </ul>

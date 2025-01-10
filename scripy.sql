@@ -136,6 +136,7 @@ CREATE TABLE article_tags (
     FOREIGN KEY (id_article) REFERENCES articles (id_article) ON DELETE CASCADE,
     FOREIGN KEY (id_tag) REFERENCES tags (id_tag) ON DELETE CASCADE
 );
+
 -- Table des commentaires
 CREATE TABLE commentaires (
     id_commentaire INT AUTO_INCREMENT PRIMARY KEY,
@@ -283,6 +284,15 @@ Que vous soyez un conducteur occasionnel ou un voyageur fréquent, ces applicati
 'Approuvé', 
 35, 
 6);
+-- Insertion de commentaires dans la table `commentaires`
+INSERT INTO commentaires (contenu, id_article, id_client)
+VALUES 
+('Ceci est un commentaire très intéressant sur l''article.', 1, 25),
+('Merci pour cet article, c''était très informatif!', 2, 26),
+('Je ne suis pas d''accord avec certains points mentionnés.', 3, 27),
+('Excellent article, j''ai appris beaucoup de choses.', 1, 28),
+('Pouvez-vous fournir plus de détails sur le sujet?', 2, 29),
+('C''était un bon article, mais quelques points peuvent être améliorés.', 3, 30);
 
 -- Table des favoris
 -- CREATE TABLE favoris (
